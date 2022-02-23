@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-aspnetcore-service
+spec:
+  selector:
+    app: hello-aspnetcore-pod
+  ports:
+    - port: 8080
+      targetPort: 80
+  type: LoadBalancer
+# A service is the logic object that potentially allows external communicaion with the pods
+
+# LOAD BALANCER acquires a public IP from the cloud hosting providers and assigns it to the public service so it can accomodate external calls
