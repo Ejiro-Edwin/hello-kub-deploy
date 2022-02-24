@@ -1,7 +1,7 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloaspnetcore 
+  name: helloaspnetcore
 spec:
   replicas: 1
   selector:
@@ -10,10 +10,16 @@ spec:
   template:
     metadata:
       labels:
-        app: helloaspnetcore 
+        app: helloaspnetcore
     spec:
       containers:
-        - name: helloaspnetcore 
+        - name: helloaspnetcore
           image: dev4acr.azurecr.io/helloaspnetcore
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+
           ports:
-          - containerPort: 80
+            - containerPort: 80
